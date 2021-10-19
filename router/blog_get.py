@@ -1,3 +1,4 @@
+from router.blog_post import required_functionality
 from fastapi import APIRouter, status, Response
 from enum import Enum
 from typing import Optional
@@ -17,7 +18,7 @@ router = APIRouter(
     '/all',
     description='This api call simullate fetching all blogsl'
     )
-def get_all_blogs(page =1 , page_size: Optional[int]=None):
+def get_all_blogs(page =1, page_size: Optional[int]=None):
     return {'message', f'All {page_size} blogs on page {page}'}
 
 
