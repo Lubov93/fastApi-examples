@@ -1,4 +1,3 @@
-from router.blog_post import required_functionality
 from fastapi import APIRouter, status, Response
 from enum import Enum
 from typing import Optional
@@ -9,7 +8,6 @@ router = APIRouter(
 )
 
 
-
 # @app.get('/blog/all')
 # def get_all_blogs():
 #     return {'message': 'All blogs provided'}
@@ -17,13 +15,13 @@ router = APIRouter(
 @router.get(
     '/all',
     description='This api call simullate fetching all blogsl'
-    )
-def get_all_blogs(page =1, page_size: Optional[int]=None):
+)
+def get_all_blogs(page=1, page_size: Optional[int] = None):
     return {'message', f'All {page_size} blogs on page {page}'}
 
 
 @router.get('/{id}/comments/{comment_id}', tags=['comment'])
-def get_comment(id: int, comment_id: int, valid: bool=True, username: Optional[str]= None):
+def get_comment(id: int, comment_id: int, valid: bool = True, username: Optional[str] = None):
     """
     Simulates retrieving a comment of blog
 
@@ -52,8 +50,6 @@ def get_blog(id: int, response: Response):
     if id > 5:
         response.status_code = status.HTTP_404_NOT_FOUND
         return {'error': f'Blog{id} not found'}
-    else: 
+    else:
         response.status_code = status.HTTP_200_OK
         return {'message': f'Blog with id {id}'}
-
-
