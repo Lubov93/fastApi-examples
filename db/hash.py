@@ -1,6 +1,6 @@
 from passlib.context import CryptContext
 
-pwd_cxt = CryptContext(shemes='bcypt', deprecated='auto') # Для хеширования пароля
+pwd_cxt = CryptContext(schemes='bcrypt', deprecated='auto') # Для хеширования пароля
 
 class Hash():
     def bcrypt(password:str):
